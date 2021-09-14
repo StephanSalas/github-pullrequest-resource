@@ -6,8 +6,8 @@ COPY . $GOPATH/src/github.com/stephansalas/github-pullrequest-resource
 WORKDIR $GOPATH/src/github.com/stephansalas/github-pullrequest-resource
 ENV CGO_ENABLED 0
 RUN go mod vendor
-RUN go build -o /assets/out github.com/stephansalas/githubpull-request-resource/cmd/out
-RUN go build -o /assets/in github.com/stephansalas/githubpull-request-resource/cmd/in
+RUN go build -o /assets/out github.com/stephansalas/github-pullrequest-resource/cmd/out
+RUN go build -o /assets/in github.com/stephansalas/github-pullrequest-resource/cmd/in
 RUN go build -o /assets/check github.com/stephansalas/github-pullrequest-resource/cmd/check
 
 FROM ${base_image} AS resource

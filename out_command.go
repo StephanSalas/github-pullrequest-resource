@@ -30,12 +30,12 @@ func (c *OutCommand) Run(request OutRequest) (outResponse OutResponse, err error
 	}
 
 	newPullRequest := &github.NewPullRequest{
-		Title:               &request.Source.Title,
-		Head:                &request.Source.SourceBranch,
-		Base:                &request.Source.TargetBranch,
-		Issue:               &request.Source.IssueRef,
-		MaintainerCanModify: &request.Source.MaintainerCanModify,
-		Draft:               &request.Source.isDraft,
+		Title:               &request.Params.Title,
+		Head:                &request.Params.SourceBranch,
+		Base:                &request.Params.TargetBranch,
+		Issue:               &request.Params.IssueRef,
+		MaintainerCanModify: &request.Params.MaintainerCanModify,
+		Draft:               &request.Params.isDraft,
 	}
 
 	createdPullRequest, responseCode, err := gitHubClient.CreatePullRequest(newPullRequest)
